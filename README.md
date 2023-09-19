@@ -2,7 +2,7 @@
 application for quick conversion of jupyter-notebooks to .py files
 
 ```
-usage: nb2py.py [-h] [-o OUT_PATH] [-w WORD_COUNT] [-i IGNORE] [-c] in_path
+usage: python nb2py.py [-h] [-o OUT_PATH] [-w WORD_COUNT] [-i IGNORE] [-c] in_path
 
 application for quick conversion of jupyter-notebooks to .py files
 
@@ -21,3 +21,9 @@ optional arguments:
 
 author: itamar.g
 ```
+## Optional Argument
+
+- ```-w``` (word count : int) - when proccessing markdown cells (into commented lines), limits the number of words per line. This makes the code much more readable. the default nubmer of words per line in the output file is 15. 
+- ```-o``` (output path : str) - if not defined, the output file will be written to the current working directory (from where the nb2py.py is executed), with the same name as the input notebook file, only differentiated by a .py suffix
+- ```-i``` (ignore : str) - a string pattern that when encountered at the top of a code cell (first line) will cause the same cell to be excluded from the the ouptut .py file. The implementation of the method is done using regex, so regular expression patterns are excepeted.
+- ```-c``` (code only) - only process code cells, and excludes markdown cells from output .py file.
